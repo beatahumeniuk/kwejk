@@ -3,11 +3,8 @@ package pl.akademiakodu.Kwejk.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import pl.akademiakodu.Kwejk.model.Gif;
 import pl.akademiakodu.Kwejk.model.GifDaoImpl;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class KwejkController {
@@ -20,10 +17,16 @@ public class KwejkController {
         return "home";  }
 
 
-    @RequestMapping("gif/{name}")
-        public String showOneGif(@PathVariable String name, ModelMap modelMap)
-        {
-            modelMap.addAttribute("gif",  gifDao.findOne(name));
+    @GetMapping("/gif/{name}")
+        public String showOneGif(@PathVariable String name, ModelMap modelMap)        {
+            modelMap.addAttribute("gif", gifDao.findOne(name));
             return "gif-details";
         }
+
+    @GetMapping("/favorites")
+    public String favorites(ModelMap modelMap){
+        modelMap.addAttribute("fav", gifDao.findFavorites());
+
+        return "favorites";
+    }
 }

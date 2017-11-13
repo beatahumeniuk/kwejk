@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface GifDao{
     List<Gif> findAll();
-    Gif getOneByName(String name);
-
+    Gif findOne(String name);
+    List<Gif> findFavorites();
 }

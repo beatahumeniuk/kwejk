@@ -5,6 +5,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.akademiakodu.Kwejk.model.GifDaoImpl;
 
+import javax.xml.ws.ResponseWrapper;
+
 
 @Controller
 public class KwejkController {
@@ -18,7 +20,7 @@ public class KwejkController {
 
 
     @GetMapping("/gif/{name}")
-        public String showOneGif(@PathVariable String name, ModelMap modelMap)        {
+        public String details(@PathVariable ("name") String name, ModelMap modelMap)        {
             modelMap.addAttribute("gif", gifDao.findOne(name));
             return "gif-details";
         }

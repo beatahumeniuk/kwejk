@@ -30,6 +30,7 @@ public class GifDaoImpl implements GifDao {
 
     public Gif findOne(String name)
     {
+
         return findAll().stream().filter((a)->a.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
 // przykladowa metoda ustawiajaca co drugi gif jako ulubiony

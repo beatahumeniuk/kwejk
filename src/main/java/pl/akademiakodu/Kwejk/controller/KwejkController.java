@@ -3,6 +3,7 @@ package pl.akademiakodu.Kwejk.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import pl.akademiakodu.Kwejk.model.Category;
 import pl.akademiakodu.Kwejk.model.GifDaoImpl;
 
 import javax.xml.ws.ResponseWrapper;
@@ -38,8 +39,9 @@ public class KwejkController {
         return "categories";
     }
     @GetMapping("/category/{id}")
-    public String category(@PathVariable ("id") int id, ModelMap modelMap)        {
-        modelMap.addAttribute("category", gifDao.findByCategory(id));
+    public String category(@PathVariable ("id") int id, ModelMap modelMap)
+    {       modelMap.addAttribute("category", gifDao.findCategoryById(id));
+            modelMap.addAttribute("gifsWithCategory", gifDao.findByCategory(id));
         return "category";
     }
 }

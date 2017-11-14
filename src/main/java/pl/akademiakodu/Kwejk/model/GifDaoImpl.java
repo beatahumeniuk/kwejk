@@ -63,7 +63,7 @@ public class GifDaoImpl implements GifDao {
             if(g.isFavourite())
                 favoritiesGifs.add(g);
         }
-    return favoritiesGifs;
+        return favoritiesGifs;
     }
 
 
@@ -89,6 +89,16 @@ public class GifDaoImpl implements GifDao {
         categories.add(new Category(6,"Programming"));
 
         return categories;
+    }
+    public List<Gif> findByCategory(int id)
+    {
+       List<Gif> oneCategory= new ArrayList<>();
+        for (Gif g : addToCategory())
+        {
+            if(g.category.getId()==id)
+                oneCategory.add(g);
+        }
+        return oneCategory;
     }
 }
 

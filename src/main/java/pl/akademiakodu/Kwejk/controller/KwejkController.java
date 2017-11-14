@@ -37,4 +37,9 @@ public class KwejkController {
         modelMap.put("categories", gifDao.showCategory());
         return "categories";
     }
+    @GetMapping("/category/{id}")
+    public String category(@PathVariable ("id") int id, ModelMap modelMap)        {
+        modelMap.addAttribute("category", gifDao.findByCategory(id));
+        return "category";
+    }
 }

@@ -31,4 +31,10 @@ public class KwejkController {
 
         return "favorites";
     }
+
+    @GetMapping("/categories")
+    public String categories(ModelMap modelMap){
+        modelMap.addAttribute("cat", gifDao.showCategory());
+        return "categories";
+    }
 }

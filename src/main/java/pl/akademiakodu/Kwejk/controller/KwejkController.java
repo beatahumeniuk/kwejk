@@ -34,7 +34,7 @@ public class KwejkController {
 
     @GetMapping("/categories")
     public String categories(ModelMap modelMap){
-        modelMap.addAttribute("cat", gifDao.showCategory());
+        modelMap.put("categories", gifDao.showCategory());
         return "categories";
     }
 }

@@ -15,6 +15,11 @@ public class Gif {
         this.username = username;
     }
 
+    public Gif(String name, String username, Category category) {
+        this.name = name;
+        this.username = username;
+        this.category = category;
+    }
 
     public String getName() {
         return name;

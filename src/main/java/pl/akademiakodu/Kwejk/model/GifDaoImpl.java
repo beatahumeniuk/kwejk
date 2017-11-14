@@ -66,39 +66,27 @@ public class GifDaoImpl implements GifDao {
     return favoritiesGifs;
     }
 
-/*
+
     public List<Gif> addToCategory()
     {
+        //  public Gif(String name, String username, Category category) {
         List<Gif> gifsWithCategory = new ArrayList<>();
-        gifsWithCategory.add(Gif);
+           gifsWithCategory.add(new Gif(findAll().get(0).getName(), findAll().get(0).getUsername(), showCategory().get(0)));
+           gifsWithCategory.add(new Gif(findAll().get(1).getName(), findAll().get(1).getUsername(), showCategory().get(1)));
+           gifsWithCategory.add(new Gif(findAll().get(2).getName(), findAll().get(2).getUsername(), showCategory().get(2)));
+           gifsWithCategory.add(new Gif(findAll().get(3).getName(), findAll().get(3).getUsername(), showCategory().get(2)));
+           gifsWithCategory.add(new Gif(findAll().get(4).getName(), findAll().get(4).getUsername(), showCategory().get(2)));
+           gifsWithCategory.add(new Gif(findAll().get(5).getName(), findAll().get(5).getUsername(), showCategory().get(1)));
 
         return gifsWithCategory;
     }
 
-    public List<Gif> funnyCat()
-    {
-        List<Gif> funny = new ArrayList<>();
-        funny.add(findAll().get(1));
-        funny.add(findAll().get(5));
-
-        return funny;
-    }
-    public List<Gif> programmingCat()
-    {
-        List<Gif> programming = new ArrayList<>();
-        programming.add(findAll().get(2));
-        programming.add(findAll().get(3));
-        programming.add(findAll().get(4));
-
-        return programming;
-    }
-*/
     public List<Category> showCategory()
     {
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category("Android"));
-        categories.add(new Category("Funny"));
-        categories.add(new Category("Programming"));
+        categories.add(new Category(4,"Android"));
+        categories.add(new Category(5,"Funny"));
+        categories.add(new Category(6,"Programming"));
 
         return categories;
     }

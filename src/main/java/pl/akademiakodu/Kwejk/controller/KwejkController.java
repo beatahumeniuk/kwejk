@@ -44,4 +44,8 @@ public class KwejkController {
             modelMap.addAttribute("gifsWithCategory", gifDao.findByCategory(id));
         return "category";
     }
+
+    @GetMapping("/#/")
+    public String serchingByName(@RequestParam String name){return "/gif/{name}";}
+
 }

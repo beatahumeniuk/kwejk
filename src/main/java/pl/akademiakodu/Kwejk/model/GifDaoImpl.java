@@ -18,6 +18,13 @@ public class GifDaoImpl implements GifDao {
         names.add("infinite-andrew");
     }
 
+   static List<Category> categories = new ArrayList<>();
+       static {
+           categories.add(new Category(4, "Android"));
+           categories.add(new Category(5, "Funny"));
+           categories.add(new Category(6, "Programming"));
+       }
+
 
     public List<Gif> findAll() {
         List<Gif> gifs = new ArrayList<>();
@@ -69,25 +76,19 @@ public class GifDaoImpl implements GifDao {
 
     public List<Gif> addToCategory()
     {
-        //  public Gif(String name, String username, Category category) {
         List<Gif> gifsWithCategory = new ArrayList<>();
-           gifsWithCategory.add(new Gif(findAll().get(0).getName(), findAll().get(0).getUsername(), showCategory().get(0)));
-           gifsWithCategory.add(new Gif(findAll().get(1).getName(), findAll().get(1).getUsername(), showCategory().get(1)));
-           gifsWithCategory.add(new Gif(findAll().get(2).getName(), findAll().get(2).getUsername(), showCategory().get(2)));
-           gifsWithCategory.add(new Gif(findAll().get(3).getName(), findAll().get(3).getUsername(), showCategory().get(2)));
-           gifsWithCategory.add(new Gif(findAll().get(4).getName(), findAll().get(4).getUsername(), showCategory().get(2)));
-           gifsWithCategory.add(new Gif(findAll().get(5).getName(), findAll().get(5).getUsername(), showCategory().get(1)));
+           gifsWithCategory.add(new Gif(findAll().get(0).getName(), findAll().get(0).getUsername(), categories.get(0)));
+           gifsWithCategory.add(new Gif(findAll().get(1).getName(), findAll().get(1).getUsername(), categories.get(1)));
+           gifsWithCategory.add(new Gif(findAll().get(2).getName(), findAll().get(2).getUsername(), categories.get(2)));
+           gifsWithCategory.add(new Gif(findAll().get(3).getName(), findAll().get(3).getUsername(), categories.get(2)));
+           gifsWithCategory.add(new Gif(findAll().get(4).getName(), findAll().get(4).getUsername(), categories.get(2)));
+           gifsWithCategory.add(new Gif(findAll().get(5).getName(), findAll().get(5).getUsername(), categories.get(1)));
 
         return gifsWithCategory;
     }
 
     public List<Category> showCategory()
     {
-        List<Category> categories = new ArrayList<>();
-        categories.add(new Category(4,"Android"));
-        categories.add(new Category(5,"Funny"));
-        categories.add(new Category(6,"Programming"));
-
         return categories;
     }
     public List<Gif> findByCategory(int id)

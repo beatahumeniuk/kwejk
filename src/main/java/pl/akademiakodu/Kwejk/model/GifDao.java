@@ -6,4 +6,6 @@ public interface GifDao{
     List<Gif> findAll();
     Gif findOne(String name);
     List<Gif> findFavorites();
+    List<Gif> findByCategory(int id);
+    List<Category> showCategory();
 }

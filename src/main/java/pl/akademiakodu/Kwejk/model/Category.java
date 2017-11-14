@@ -1,12 +1,15 @@
 package pl.akademiakodu.Kwejk.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Category {
 
     private int id;
     private String name;
     static int counter = 0;
 
-    public Category(int id, String name) {
+    public Category(String name) {
         this.id = counter;
         this.name = name;
         counter++;
@@ -27,4 +30,6 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }

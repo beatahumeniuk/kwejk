@@ -66,13 +66,15 @@ public class GifDaoImpl implements GifDao {
     return favoritiesGifs;
     }
 
-    public List<Gif> androidCat()
+/*
+    public List<Gif> addToCategory()
     {
-        List<Gif> android = new ArrayList<>();
-        android.add(findAll().get(0));
+        List<Gif> gifsWithCategory = new ArrayList<>();
+        gifsWithCategory.add(Gif);
 
-        return android;
+        return gifsWithCategory;
     }
+
     public List<Gif> funnyCat()
     {
         List<Gif> funny = new ArrayList<>();
@@ -90,6 +92,15 @@ public class GifDaoImpl implements GifDao {
 
         return programming;
     }
+*/
+    public List<Category> showCategory()
+    {
+        List<Category> categories = new ArrayList<>();
+        categories.add(new Category("Android"));
+        categories.add(new Category("Funny"));
+        categories.add(new Category("Programming"));
 
+        return categories;
+    }
 }
 

@@ -24,14 +24,19 @@ public class GifDaoImpl implements GifDao {
            categories.add(new Category(5, "Funny"));
            categories.add(new Category(6, "Programming"));
        }
+    private static List<Gif> gifs = new ArrayList<>();
+    static {
+        gifs.add(new Gif(names.get(0), "Username", categories.get(0)));
+        gifs.add(new Gif(names.get(1), "Username1", categories.get(1)));
+        gifs.add(new Gif(names.get(2), "Username2", categories.get(2)));
+        gifs.add(new Gif(names.get(3), "Username3", categories.get(2)));
+        gifs.add(new Gif(names.get(4), "Username4", categories.get(2)));
+        gifs.add(new Gif(names.get(5), "Username5", categories.get(1)));
+    }
 
 
     public List<Gif> findAll() {
-        List<Gif> gifs = new ArrayList<>();
-        int i = 1;
-        for (String name : names) {
-            gifs.add(new Gif(name, "username" + i++));
-        }
+
         return gifs;
     }
 
@@ -45,7 +50,7 @@ public class GifDaoImpl implements GifDao {
     {
         List<Gif> anyFavorities = new ArrayList<>();
         boolean setFav = true;
-        for (Gif g : findAll())
+        for (Gif g :gifs)
         {
             if(setFav) {
                 g.setFavourite(setFav);
@@ -74,18 +79,6 @@ public class GifDaoImpl implements GifDao {
     }
 
 
-    public List<Gif> addToCategory()
-    {
-        List<Gif> gifsWithCategory = new ArrayList<>();
-           gifsWithCategory.add(new Gif(findAll().get(0).getName(), findAll().get(0).getUsername(), categories.get(0)));
-           gifsWithCategory.add(new Gif(findAll().get(1).getName(), findAll().get(1).getUsername(), categories.get(1)));
-           gifsWithCategory.add(new Gif(findAll().get(2).getName(), findAll().get(2).getUsername(), categories.get(2)));
-           gifsWithCategory.add(new Gif(findAll().get(3).getName(), findAll().get(3).getUsername(), categories.get(2)));
-           gifsWithCategory.add(new Gif(findAll().get(4).getName(), findAll().get(4).getUsername(), categories.get(2)));
-           gifsWithCategory.add(new Gif(findAll().get(5).getName(), findAll().get(5).getUsername(), categories.get(1)));
-
-        return gifsWithCategory;
-    }
 
     public List<Category> showCategory()
     {
@@ -94,7 +87,7 @@ public class GifDaoImpl implements GifDao {
     public List<Gif> findByCategory(int id)
     {
        List<Gif> oneCategory= new ArrayList<>();
-        for (Gif g : addToCategory())
+        for (Gif g : gifs)
         {
             if(g.category.getId()==id)
                 oneCategory.add(g);

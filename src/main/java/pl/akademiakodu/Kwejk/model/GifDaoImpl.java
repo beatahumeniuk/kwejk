@@ -65,5 +65,31 @@ public class GifDaoImpl implements GifDao {
         }
     return favoritiesGifs;
     }
+
+    public List<Gif> androidCat()
+    {
+        List<Gif> android = new ArrayList<>();
+        android.add(findAll().get(0));
+
+        return android;
+    }
+    public List<Gif> funnyCat()
+    {
+        List<Gif> funny = new ArrayList<>();
+        funny.add(findAll().get(1));
+        funny.add(findAll().get(5));
+
+        return funny;
+    }
+    public List<Gif> programmingCat()
+    {
+        List<Gif> programming = new ArrayList<>();
+        programming.add(findAll().get(2));
+        programming.add(findAll().get(3));
+        programming.add(findAll().get(4));
+
+        return programming;
+    }
+
 }
 

@@ -6,6 +6,7 @@ public class Gif {
     private String username;
     private boolean isFavourite;
     Category category;
+
     public Gif() {
     }
 

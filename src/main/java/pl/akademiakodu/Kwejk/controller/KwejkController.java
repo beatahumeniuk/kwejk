@@ -45,7 +45,10 @@ public class KwejkController {
         return "category";
     }
 
-    @GetMapping("/#/")
-    public String serchingByName(@RequestParam String name){return "/gif/{name}";}
+    @GetMapping("/?q={name}#")
+    public String serchingByName(@PathVariable ("name") String name, ModelMap modelMap)
+    {
+        modelMap.addAttribute("gif", gifDao.findOne(name));
+        return"gif-details";}
 
 }

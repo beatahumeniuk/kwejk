@@ -8,4 +8,5 @@ public interface GifDao{
     List<Gif> findFavorites();
     List<Gif> findByCategory(int id);
     List<Category> showCategory();
+    Category findCategoryById(int id);
 }

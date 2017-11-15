@@ -7,6 +7,7 @@ import pl.akademiakodu.Kwejk.model.Category;
 import pl.akademiakodu.Kwejk.model.GifDaoImpl;
 
 import javax.xml.ws.ResponseWrapper;
+import java.util.stream.Collectors;
 //komentarz
 
 @Controller
@@ -45,10 +46,13 @@ public class KwejkController {
         return "category";
     }
 
-    @GetMapping("/?q={name}#")
-    public String serchingByName(@PathVariable ("name") String name, ModelMap modelMap)
-    {
-        modelMap.addAttribute("gif", gifDao.findOne(name));
-        return"gif-details";}
+    @GetMapping("/search")
+    public String serching(@RequestParam  String name, ModelMap modelMap)        {
+        modelMap.addAttribute("gifs", gifDao.getSearchByName(name));
+        //System.out.println(gifDao.getSearchByName("dupa"));
+        return "searchGif";
+    }
+
+
 
 }

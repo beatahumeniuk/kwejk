@@ -10,4 +10,3 @@ public class KwejkApplication {
 		SpringApplication.run(KwejkApplication.class, args);
 	}
 }
-//kom

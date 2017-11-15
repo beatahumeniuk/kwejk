@@ -48,9 +48,10 @@ public class KwejkController {
         return "category";
     }
 
+
     @GetMapping("/search")
-    public String serchingByName(@PathVariable String q, ModelMap modelMap) {
-        modelMap.addAttribute("searchGif", gifDao.getSearchByName(q));
+    public String searchByname(@RequestParam String q, ModelMap modelMap){
+       modelMap.addAttribute("g", gifDao.getSearchByName(q));
         return "search";
     }
 

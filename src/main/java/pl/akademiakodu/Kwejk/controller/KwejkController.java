@@ -7,7 +7,7 @@ import pl.akademiakodu.Kwejk.model.Category;
 import pl.akademiakodu.Kwejk.model.GifDaoImpl;
 
 import javax.xml.ws.ResponseWrapper;
-
+//komentarz
 
 @Controller
 public class KwejkController {

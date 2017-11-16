@@ -51,7 +51,7 @@ public class KwejkController {
     {
            modelMap.addAttribute("g", gifDao.getSearchByName(q));
           modelMap.addAttribute("g",gifDao.searchCategoryByName(q));
-        boolean isEmpty = gifDao.getSearchByName(q).isEmpty() ? true : false;
+        boolean isEmpty =(gifDao.getSearchByName(q).isEmpty() && gifDao.searchCategoryByName(q).isEmpty())? true : false;
         modelMap.addAttribute("empty", isEmpty);
         return "search";
     }

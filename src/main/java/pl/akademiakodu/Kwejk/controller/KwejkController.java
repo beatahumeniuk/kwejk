@@ -47,8 +47,12 @@ public class KwejkController {
 
 
     @GetMapping("/search")
-    public String searchByname(@RequestParam String q, ModelMap modelMap){
-       modelMap.addAttribute("g", gifDao.getSearchByName(q));
+    public String searchByname(@RequestParam String q, ModelMap modelMap)
+    {
+       if(gifDao.getSearchByName(q).isEmpty())
+            modelMap.addAttribute("g", gifDao.searchingFailed());
+        else
+           modelMap.addAttribute("g", gifDao.getSearchByName(q));
         return "search";
 
     }

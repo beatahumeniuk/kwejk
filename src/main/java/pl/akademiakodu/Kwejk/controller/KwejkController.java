@@ -4,18 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.akademiakodu.Kwejk.model.Category;
+import pl.akademiakodu.Kwejk.model.Gif;
 import pl.akademiakodu.Kwejk.model.GifDaoImpl;
 
-import javax.xml.ws.ResponseWrapper;
-import java.util.stream.Collectors;
-//komentarz
+
 
 @Controller
 public class KwejkController {
 
     GifDaoImpl gifDao = new GifDaoImpl();
 
-    @GetMapping("/")
+@GetMapping("/")
     public String getNameOfGif(ModelMap modelMap){
         modelMap.put("gifs", gifDao.findAll());
         return "home";  }
@@ -46,11 +45,12 @@ public class KwejkController {
         return "category";
     }
 
+
     @GetMapping("/search")
-    public String serching(@RequestParam  String name, ModelMap modelMap)        {
-        modelMap.addAttribute("gifs", gifDao.getSearchByName(name));
-        //System.out.println(gifDao.getSearchByName("dupa"));
-        return "searchGif";
+    public String searchByname(@RequestParam String q, ModelMap modelMap){
+       modelMap.addAttribute("g", gifDao.getSearchByName(q));
+        return "search";
+
     }
 
 

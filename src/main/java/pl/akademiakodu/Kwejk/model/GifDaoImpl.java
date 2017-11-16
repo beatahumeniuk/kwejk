@@ -98,16 +98,18 @@ public class GifDaoImpl implements GifDao {
         }
         return null;
     }
+
     public List<Gif> getSearchByName(String name){
         List<Gif> searchAll = new ArrayList<>();
-        for(Gif g: gifs){
-            if(g.getName().contains((name.toLowerCase()))) {
-                searchAll.add(g);
+        for(Gif gif: gifs){
+            if(gif.getName().contains((name.toLowerCase()))) {
+                searchAll.add(gif);
             }
         }
-        for(Gif addGif: gifs){
-            if(addGif.getCategory().getName().compareTo(name.toLowerCase())==0){
-                searchAll.add(addGif);
+        for(Gif g: gifs){
+            if(g.getCategory().getName().compareTo(name.toLowerCase())==0){
+                searchAll.add(g);
+
             }
         }
         return searchAll;

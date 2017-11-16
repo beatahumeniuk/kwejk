@@ -57,4 +57,5 @@ public class Gif {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

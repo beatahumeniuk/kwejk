@@ -49,14 +49,11 @@ public class KwejkController {
     @GetMapping("/search")
     public String searchByname(@RequestParam String q, ModelMap modelMap)
     {
-       if(gifDao.getSearchByName(q).isEmpty())
-            modelMap.addAttribute("g", gifDao.searchingFailed());
-        else
            modelMap.addAttribute("g", gifDao.getSearchByName(q));
+          modelMap.addAttribute("g",gifDao.searchCategoryByName(q));
+        boolean isEmpty = gifDao.getSearchByName(q).isEmpty() ? true : false;
+        modelMap.addAttribute("empty", isEmpty);
         return "search";
-
     }
-
-
 
 }

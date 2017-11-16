@@ -10,6 +10,7 @@
 <div class="gifs container">
 
     <div class="row">
+        <h1 th:if="${empty} ">Nic nie znaleziono !!!</h1>
         <div th:each="gif : ${g}" class="col s12 l4">
             <a th:href="@{|/gif/${gif.name}|}">
                 <img th:src="@{|/gifs/${gif.name}.gif|}" />
